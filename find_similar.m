@@ -15,7 +15,30 @@ end
 figure
 montage(thumbnailGallery);
 
-outputArg1 = inputArg1;
-outputArg2 = inputArg2;
+
+imageIndex = indexImages(test_images);
+
+queryDir = fullfile(dataDirectory, filesep);
+queryImage = imread([queryDir 'similar2_1.JPG']);
+
+[imageIDs, scores] = retrieveImages(queryImage,imageIndex,'NumResults',Inf);
+
+bestMatchesGallery = [];
+for i = 1:length(imageIDs)
+    if (scores(i) >= 0.10) %FIX THRESHOLD
+        match = imageIDs(i);
+        matchImage = imread(imageIndex.ImageLocation{match});
+        thumbnail = imresize(matchImage,[450 600]);
+        bestMatchesGallery = cat(4,bestMatchesGallery,thumbnail);
+    end
+end
+figure
+montage(bestMatchesGallery);
+
+% bestMatch = imageIDs(1);
+% bestImage = imread(imageIndex.ImageLocation{bestMatch});
+% 
+% figure
+% imshowpair(queryImage, bestImage, 'montage');
 end
 
