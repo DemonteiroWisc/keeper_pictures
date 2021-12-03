@@ -19,13 +19,14 @@ montage(thumbnailGallery);
 imageIndex = indexImages(test_images);
 
 queryDir = fullfile(dataDirectory, filesep);
-queryImage = imread([queryDir 'similar2_1.JPG']);
+queryImage = imread([queryDir 'similar3_3.JPG']);
 
 [imageIDs, scores] = retrieveImages(queryImage,imageIndex,'NumResults',Inf);
 
 bestMatchesGallery = [];
 for i = 1:length(imageIDs)
-    if (scores(i) >= 0.10) %FIX THRESHOLD
+    disp(scores(i));
+    if (scores(i) >= 0.21) %FIX THRESHOLD
         match = imageIDs(i);
         matchImage = imread(imageIndex.ImageLocation{match});
         thumbnail = imresize(matchImage,[450 600]);
