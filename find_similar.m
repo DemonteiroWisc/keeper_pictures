@@ -1,4 +1,4 @@
-function [outputArg1,outputArg2] = find_similar(inputArg1,inputArg2)
+function [outputArg1,outputArg2] = find_similar(inputArg1)
 %FIND_SIMILAR Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -34,6 +34,7 @@ for i = 1:length(imageIDs)
         thumbnail = imresize(matchImage,[450 600]);
         bestMatchesGallery = cat(4,bestMatchesGallery,thumbnail);
         fileToDelete = imageIndex.ImageLocation{match};
+        copyfile(fileToDelete,inputArg1);
         delete(fileToDelete);
     end
 end
