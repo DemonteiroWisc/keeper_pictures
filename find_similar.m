@@ -28,7 +28,7 @@ queryImage = imread([queryDir dirFiles(3).name]);
 bestMatchesGallery = [];
 for i = 1:length(imageIDs)
     disp(scores(i));
-    if (scores(i) >= 0.21) %FIX THRESHOLD
+    if (scores(i) >= 0.21) %Possibly adjust threshold
         match = imageIDs(i);
         matchImage = imread(imageIndex.ImageLocation{match});
         thumbnail = imresize(matchImage,[450 600]);
