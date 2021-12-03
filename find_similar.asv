@@ -36,8 +36,6 @@ for i = 1:length(imageIDs)
         matchImage = imread(imageIndex.ImageLocation{match});
         thumbnail = imresize(matchImage,[450 600]);
         bestMatchesGallery = cat(4,bestMatchesGallery,thumbnail);
-        fileToDelete = imageIndex.ImageLocation{match};
-        delete(fileToDelete);
     end
 end
 figure
