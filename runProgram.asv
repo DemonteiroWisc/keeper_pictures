@@ -1,9 +1,0 @@
-function runProgram()
-
-function similar()
-mkdir data_mod;
-copyfile data data_mod;
-
-a=dir(['data_mod' '/*.jpg']);
-out=size(a,1);
-while (out >= 1)
