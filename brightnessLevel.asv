@@ -1,0 +1,10 @@
+function [outputArg1,outputArg2] = brightnessLevel(inputArg1,inputArg2)
+
+brightness = 0;
+
+
+
+%grayImage = rgb2gray(thisFrame);
+%meanGrayLevels(frame) = mean(grayImage(:));
+end
+
