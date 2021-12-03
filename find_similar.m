@@ -2,9 +2,6 @@ function [outputArg1,outputArg2] = find_similar(inputArg1,inputArg2)
 %FIND_SIMILAR Summary of this function goes here
 %   Detailed explanation goes here
 
-mkdir data_mod;
-copyfile data data_mod;
-
 dataDirectory = fullfile('data_mod');
 test_images = imageDatastore(dataDirectory);
 
