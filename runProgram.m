@@ -49,6 +49,19 @@ end
 
 %rmdir('data_mod');
 
+dataDirectory = fullfile('bestImages');
+test_images = imageDatastore(dataDirectory);
+
+thumbnailGallery = [];
+for i = 1:length(test_images.Files)
+    I = readimage(test_images,i);
+    thumbnail = imresize(I,[450 600]);
+    thumbnailGallery = cat(4,thumbnailGallery,thumbnail);
+end
+
+figure
+montage(thumbnailGallery);
+
 
 function score()
 dirName = 'similar1';
